@@ -5,7 +5,7 @@ import {
   ArrowRightIcon,
 } from '@heroicons/react/24/outline';
 import { useSelectedSkip } from '../contexts/SelectedSkipContext';
-
+import skipWastePlaceholder from '../assets/skip-waste-placeholder.webp';
 interface MobileCardProps {
   skip: Skip;
 }
@@ -87,7 +87,7 @@ export const MobileCard = ({ skip }: MobileCardProps) => {
 
       <div className="absolute left-1/2 w-[16rem] transform -translate-x-1/2 top-2/11 z-20">
         <img
-          src="./src/assets/skip-waste-placeholder.webp"
+          src={skipWastePlaceholder}
           alt={`${skip.size} Yard Skip`}
           className={`
             w-full object-contain transform transition-transform duration-300
