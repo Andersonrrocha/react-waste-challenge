@@ -1,57 +1,136 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-bgContrast: #f9f9f9;
-  --color-text: #1a1a1a;
-  --color-card: #ffffff;
-  --color-card-hover: #f3f4f6;
-  --color-button: #e5e7eb;
-  --color-button-hover: #d1d5db;
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
+  /* ========== Primary colors ========== */
+  --color-primary: #fb923c; /* Laranja */
+  --color-primary-hover: #ea580c;
+  --color-primary-active: #c2410c;
+  --color-primary-darker: #f5681f;
+
+  /* ========== Neutral colors ========== */
+  --color-neutral-50: #ffffff;
+  --color-neutral-100: #f9fafb;
+  --color-neutral-200: #f3f4f6;
+  --color-neutral-300: #e5e7eb;
+  --color-neutral-400: #d1d5db;
+  --color-neutral-500: #9ca3af;
+  --color-neutral-600: #6b7280;
+  --color-neutral-700: #4b5563;
+  --color-neutral-800: #374151;
+  --color-neutral-900: #111827;
+
+  /* ========== Feedback colors ========== */
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* ========== Typography ========== */
+  --font-family-base: 'Inter', sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+
+  /* ========== Border radius ========== */
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1rem;
+  --border-radius-lg: 1.5rem;
+
+  /* ========== Shadows ========== */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
 @layer base {
   @variant dark {
-    --color-bgContrast: #1a1a1a;
-    --color-text: #f9f9f9;
-    --color-card: #2d2d2d;
-    --color-card-hover: #3d3d3d;
-    --color-button: #3d3d3d;
-    --color-button-hover: #4d4d4d;
-    --color-primary: #3b82f6;
-    --color-primary-dark: #2563eb;
+    /* ========== Primary colors ========== */
+    --color-primary: #3b82f6; /* Azul */
+    --color-primary-hover: #2563eb;
+    --color-primary-active: #1d4ed8;
+    --color-primary-darker: #126cff;
+
+    /* ========== Neutral colors ========== */
+    --color-neutral-50: #111827;
+    --color-neutral-100: #1f2937;
+    --color-neutral-200: #374151;
+    --color-neutral-300: #4b5563;
+    --color-neutral-400: #6b7280;
+    --color-neutral-500: #9ca3af;
+    --color-neutral-600: #d1d5db;
+    --color-neutral-700: #e5e7eb;
+    --color-neutral-800: #f3f4f6;
+    --color-neutral-900: #f9fafb;
   }
 }
 
-@tailwind utilities;
-
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   color-scheme: light dark;
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 body {
   background-color: var(--color-bgContrast);
   margin: 0;
-  display: flex;
-  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
-  width: 100%;
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-900);
+}
+
+@tailwind utilities;
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.drawer-enter {
+  transform: translateX(100%);
+}
+
+.drawer-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-out;
+}
+
+.drawer-exit {
+  transform: translateX(0);
+}
+
+.drawer-exit-active {
+  transform: translateX(100%);
+  transition: transform 300ms ease-out;
+}
+
+.overlay-enter {
+  opacity: 0;
+}
+
+.overlay-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+
+.overlay-exit {
+  opacity: 1;
+}
+
+.overlay-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
 }

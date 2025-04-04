@@ -1,64 +1,55 @@
-import { useState, useEffect } from 'react';
-import api from '../services/axios.ts';
-import { Card } from '../components/Card';
 import { ThemeToggle } from '../components/ThemeToggle';
-
-export interface SkipData {
-    id: string;
-    size: number;
-    hire_period_days: number;
-    transport_cost: number | null;
-    per_tonne_cost: number | null;
-    price_before_vat: number;
-    vat: number;
-    postcode: string;
-    area: string | null;
-    forbidden: boolean;
-    created_at: string;
-    updated_at: string;
-    allowed_on_road: boolean;
-    allows_heavy_waste: boolean;
-}
+import { Card } from '../components/Card';
+import { Timeline } from '../components/Timeline';
+import { useSkips } from '../hooks/useSkips';
+import { SelectedSkipProvider } from '../contexts/SelectedSkipContext';
+import { SelectedSkipDrawer } from '../components/SelectedSkipDrawer';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 export const Home = () => {
-    const [data, setData] = useState<SkipData[] | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+  const { data: skips, isLoading, error } = useSkips();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const response = await api.get<SkipData[]>('/skips/by-location', {
-                    params: {
-                        postcode: 'NR32',
-                        area: 'Lowestoft'
-                    }
-                });
-                setData(response.data);
-            } catch (err) {
-                setError('Erro ao buscar dados');
-                console.error('Erro na requisição:', err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    if (loading) return <div className="flex justify-center items-center min-h-screen bg-bgContrast text-text">Carregando...</div>;
-    if (error) return <div className="flex justify-center items-center min-h-screen text-red-500 bg-bgContrast">Erro: {error}</div>;
-
+  if (isLoading) {
     return (
-        <div className="container w-full flex flex-col justify-center mx-auto px-4 py-8 min-h-screen">
-            <ThemeToggle />
-            <h1 className="text-2xl font-bold mb-6 text-text">Available Skips</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {data?.map((skip) => (
-                    <Card key={skip.id} skip={skip} />
-                ))}
-            </div>
-        </div>
+      <div className="min-h-screen bg-[#efe1b8] dark:bg-gray-800 text-neutral-900 dark:text-neutral-50 flex items-center justify-center">
+        Loading...
+      </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#efe1b8] dark:bg-gray-800 text-error flex items-center justify-center">
+        Error: {error.message}
+      </div>
+    );
+  }
+
+  return (
+    <SelectedSkipProvider>
+      <div className="min-h-screen bg-[#efe1b8] dark:bg-gray-800">
+        <ThemeToggle />
+        <Timeline />
+        <div className="text-center mt-10">
+          <h1 className="text-5xl font-bold text-primary-darker">Choose Your Skip Size</h1>
+          <p className="mt-2 text-neutral-600 text-xl dark:text-neutral-500">
+            Select the skip size that best suits your needs
+          </p>
+        </div>
+        <div className="max-w-[1440px] mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skips && skips.length > 0 ? (
+              skips.map((skip) => <Card key={skip.id} skip={skip} />)
+            ) : (
+              <div className="col-span-full text-3xl font-extralight flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400">
+                <ExclamationTriangleIcon className="w-12 h-12 stroke-1 mb-4" />
+                No skips available.
+              </div>
+            )}
+          </div>
+        </div>
+        <SelectedSkipDrawer />
+      </div>
+    </SelectedSkipProvider>
+  );
 };

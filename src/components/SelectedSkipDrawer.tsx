@@ -9,7 +9,7 @@ export const SelectedSkipDrawer = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        drawerRef.current && 
+        drawerRef.current &&
         !drawerRef.current.contains(event.target as Node) &&
         !(event.target as Element).closest('.skip-card')
       ) {
@@ -27,7 +27,7 @@ export const SelectedSkipDrawer = () => {
   }, [isDrawerOpen, closeDrawer]);
 
   return (
-    <div 
+    <div
       ref={drawerRef}
       style={{ transform: `translateX(${isDrawerOpen ? '0' : '100%'})` }}
       className={`
@@ -40,7 +40,9 @@ export const SelectedSkipDrawer = () => {
           <div className="flex items-center justify-between p-6 border-b border-neutral-200 dark:border-neutral-700">
             <div className="flex items-center gap-2">
               <CheckCircleIcon className="w-6 h-6 text-primary" />
-              <h2 className="text-xl font-bold text-neutral-900 dark:text-neutral-50">Selected Skip</h2>
+              <h2 className="text-xl font-bold text-neutral-900 dark:text-neutral-50">
+                Selected Skip
+              </h2>
             </div>
             <button
               onClick={closeDrawer}
@@ -52,33 +54,32 @@ export const SelectedSkipDrawer = () => {
 
           <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-80px)] hide-scrollbar">
             <div className="text-center">
-              <img 
+              <img
                 src="./src/assets/skip-waste-placeholder-2.webp"
                 alt={`${selectedSkip.size} Yard Skip`}
                 className="w-64 mx-auto mb-4"
               />
-              <h3 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50">
+              <h3 className="text-2xl font-bold text-neutral-800 dark:text-neutral-700 uppercase">
                 {selectedSkip.size} Yard Skip
               </h3>
             </div>
 
             <div className="space-y-4">
-              <div className="bg-neutral-50 dark:bg-gray-800 p-4 rounded-lg">
-                <h4 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">
+              <div className="bg-neutral-200 dark:bg-gray-800 p-4 rounded-lg">
+                <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-500 mb-1 uppercase">
                   Hire Period
                 </h4>
-                <p className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
+                <p className="text-lg font-semibold text-neutral-900 dark:text-neutral-700">
                   {selectedSkip.hire_period_days} days
                 </p>
               </div>
-
-              <div className="bg-neutral-50 dark:bg-gray-800 p-4 rounded-lg">
-                <h4 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">
+              <div className="bg-neutral-200 dark:bg-gray-800 p-4 rounded-lg">
+                <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-500 mb-1 uppercase">
                   Price
                 </h4>
                 <p className="text-lg font-semibold text-primary">
                   £{selectedSkip.price_before_vat}
-                  <span className="text-sm text-neutral-500 dark:text-neutral-400"> per week</span>
+                  <span className="text-sm text-neutral-600 dark:text-neutral-700"> per week</span>
                 </p>
               </div>
 
@@ -120,15 +121,9 @@ export const SelectedSkipDrawer = () => {
               )}
             </div>
 
-            <div className="space-y-3 sticky bottom-0 bg-white dark:bg-gray-900 pt-4">
+            <div className="space-y-3 sticky bottom-0 bg-white dark:bg-gray-900 pt-8">
               <button className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-full transition-colors">
                 Continue to Permit Check
-              </button>
-              <button 
-                onClick={closeDrawer}
-                className="w-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-900 dark:text-neutral-50 py-3 rounded-full transition-colors"
-              >
-                Change Selection
               </button>
             </div>
           </div>
@@ -136,4 +131,4 @@ export const SelectedSkipDrawer = () => {
       )}
     </div>
   );
-}; 
+};
