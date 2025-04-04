@@ -1,6 +1,7 @@
 import { XMarkIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 import { useSelectedSkip } from '../contexts/SelectedSkipContext';
 import { useEffect, useRef } from 'react';
+import skipWastePlaceholder from '../assets/skip-waste-placeholder.webp';
 
 export const SelectedSkipDrawer = () => {
   const { selectedSkip, isDrawerOpen, closeDrawer } = useSelectedSkip();
@@ -55,7 +56,7 @@ export const SelectedSkipDrawer = () => {
           <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-80px)] hide-scrollbar">
             <div className="text-center">
               <img
-                src="./src/assets/skip-waste-placeholder.webp"
+                src={skipWastePlaceholder}
                 alt={`${selectedSkip.size} Yard Skip`}
                 className="w-64 mx-auto mb-4"
               />
