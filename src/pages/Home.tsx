@@ -39,7 +39,7 @@ export const Home = () => {
           </p>
         </div>
         <div className="max-w-[1920px] mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4 gap-8">
             {skips && skips.length > 0 ? (
               skips.map((skip) => (
                 <>

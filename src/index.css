@@ -36,6 +36,9 @@
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
+
+  /* ========== Breakpoints ========== */
+  --breakpoint-3xl: 120rem;
 }
 
 @layer base {
