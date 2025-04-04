@@ -2,101 +2,137 @@
 
 ## Overview
 
-This project is a modern and user-friendly interface for skip size selection, focusing on improving user experience while maintaining the core functionality of the original proposal.
+This project is a modern and user-friendly interface for skip size selection, with focus on user experience and code quality. Built with React, TypeScript, and modern web development practices.
 
-## 🎯 Approach & Methodology
+## 🤔 Approach & Problem Solving
 
 ### Initial Analysis
 
-- Conducted a thorough review of available functionalities
-- Identified potential improvement points
-- Focused on enhancing user experience without deviating from the core requirements
+- Started with a thorough review of the provided design and functionality requirements
+- Identified opportunities for UX improvements while maintaining core functionality
+- Analyzed potential technical challenges and accessibility requirements
+- Mapped out component structure and state management needs
 
-### Design Improvements
+### Design Evolution
 
-- Reimagined the interface with a modern and engaging design
-- Implemented a light color scheme to better highlight important elements
-- Added dark mode support for complete user customization
-- Enhanced visual hierarchy for better information scanning
+- Original dark theme limited visibility of key information
+- Reimagined with a light theme to highlight important elements
+- Maintained dark mode option for user preference
+- Enhanced card layout to emphasize:
+  - Key skip features
+  - Status indicators
+  - Selection state
+  - Validation messages
 
-### User Experience Enhancements
+### UX Improvements
 
-1. **Card Design**
+- Implemented clear visual hierarchy for information scanning
+- Added detailed drawer view for selected skips
+- Introduced toggle functionality for selection/deselection
+- Enhanced feedback for disabled states with clear explanations
+- Ensured consistent experience across all screen sizes
 
-   - Highlighted key features for immediate user comprehension
-   - Clear visual indicators for disabled states
-   - Robust validation for handling unexpected API responses
-   - Visual feedback for selected items
+### Technical Decisions
 
-2. **Detailed View**
+- Separated mobile/desktop components to:
+  - Maintain clean, specific styling
+  - Avoid complex conditional rendering
+  - Optimize for different screen sizes
+- Implemented proper validation for API responses
+- Added comprehensive test coverage post-development
+- Focused on accessibility compliance from the start
 
-   - Implemented a drawer component for expanded information
-   - Added toggle functionality for selected cards
-   - Maintained visual consistency between list and detailed views
+## 🚀 Key Features
 
-3. **Responsive Design**
-   - Created separate components for mobile and desktop views
-   - Optimized layout for different screen sizes
-   - Implemented responsive grid system
-   - Carefully considered content presentation across breakpoints
+- Modern, responsive interface with dark/light mode support
+- Interactive skip selection with detailed information drawer
+- Clear visual feedback for all states (selected, disabled, errors)
+- Comprehensive test coverage
+- Accessibility compliant
 
-## 💻 Technical Implementation
-
-### Technology Stack
+## 💻 Technical Stack
 
 - React (Latest Version)
-- Vite (Build Tool)
-- Tailwind CSS (Styling)
-- Heroicons (Icon Library)
+- TypeScript
+- Vite
+- Tailwind CSS
+- Vitest & React Testing Library
+- Heroicons
 
-### Project Structure
+## 🎯 Implementation Highlights
 
-Implemented a scalable architecture with clear separation of concerns:
+### Architecture
 
 ```
 src/
 ├── components/     # Reusable UI components
-├── contexts/       # React contexts
+│   └── __tests__/ # Component test files
+├── contexts/      # React contexts
 ├── hooks/         # Custom hooks
-└── pages/         # Page components
+├── pages/         # Page components
+└── test/          # Test setup and utilities
 ```
 
-### Best Practices
+### Design Decisions
 
-- Component Separation: Distinct components for mobile and desktop views
-- Responsive Design: Optimized layouts for various screen sizes
-- Performance: Minimal external dependencies
-- Maintainability: Clear code structure and organization
-- Accessibility: Semantic HTML and proper ARIA attributes
+- Separate mobile/desktop components for clean, specific styling
+- Responsive grid system optimized for different screen sizes
+- Comprehensive component testing with proper isolation
+- Accessibility-first approach with ARIA compliance
+- Error handling and edge case coverage
 
-## 🌟 Key Features
+### Testing Strategy
 
-- Modern, intuitive interface
-- Responsive design across all devices
-- Dark/Light mode support
-- Interactive card selection
-- Detailed information drawer
-- Clear visual feedback
-- Error state handling
+The project uses Vitest and React Testing Library for:
 
-## 🔍 Design Decisions
+- Unit and integration testing
+- Accessibility compliance
+- User interaction simulation
+- Component isolation with context providers
+- External dependency mocking
 
-- **Separate Card Components**: Created distinct components for mobile and desktop to maintain clean, specific styling without complex conditions
-- **Grid Layout**: Optimized card display for different screen sizes to maximize available space
-- **Visual Feedback**: Implemented clear indicators for card states (selected, disabled)
-- **Theme Support**: Developed a cohesive design system that works seamlessly in both light and dark modes
+To run tests:
 
-## 🛠 Technical Considerations
+```bash
+npm test               # Watch mode
+npm run test:coverage  # Coverage report
+npm run test:ui        # Test UI
+```
 
-- Minimized external dependencies for better performance
-- Used modern React patterns and hooks
-- Implemented responsive design using Tailwind CSS utilities
-- Maintained scalable project structure despite the project's current size
+## 🔍 Development Practices
 
-## 🎨 UI/UX Considerations
+- Component isolation and reusability
+- Responsive design optimization
+- Performance-focused (minimal dependencies)
+- Type safety with TypeScript
+- Comprehensive error handling
+- Continuous integration ready
 
-- Enhanced visual hierarchy
-- Clear user feedback
-- Intuitive interactions
-- Consistent design language
-- Accessible interface
+For more details about specific features or implementation choices, please check the source code comments and test files.
+
+## 🎯 Quality & Maintainability Focus
+
+The development process prioritized long-term maintainability and code quality:
+
+### Structure
+
+- Organized code with clear separation of concerns
+- Modular components for easy maintenance and reuse
+- Consistent naming conventions and code style
+- Comprehensive documentation in code
+
+### Scalability
+
+- Flexible architecture that supports future enhancements
+- Reusable components and utilities
+- Well-defined interfaces between components
+- Proper state management with React Context
+
+### Quality Assurance
+
+- Comprehensive test suite added to ensure reliability
+- Proper error handling and edge case coverage
+- TypeScript for type safety and better developer experience
+- Accessibility compliance throughout the application
+
+This approach demonstrates not just the ability to implement features, but also to create maintainable, scalable, and high-quality code suitable for production environments.
