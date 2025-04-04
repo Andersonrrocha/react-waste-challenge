@@ -125,6 +125,12 @@ export const SelectedSkipDrawer = () => {
               <button className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-full transition-colors">
                 Continue to Permit Check
               </button>
+              <button
+                onClick={closeDrawer}
+                className="sm:hidden w-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-900 dark:text-neutral-50 py-3 rounded-full transition-colors"
+              >
+                Change Selection
+              </button>
             </div>
           </div>
         </>

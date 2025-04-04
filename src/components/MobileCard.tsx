@@ -50,7 +50,7 @@ export const MobileCard = ({ skip }: MobileCardProps) => {
         {!skip.allowed_on_road && (
           <div
             role="status"
-            className="flex items-center gap-2 px-3 py-1.5 bg-amber-500/95 dark:bg-neutral-100 dark:border dark:border-amber-500 text-white rounded-sm shadow-lg !dark:backdrop-blur-sm"
+            className="flex items-center gap-2 px-3 py-1.5 bg-amber-500/95 dark:bg-amber-600/95 text-white rounded-sm shadow-lg"
           >
             <ExclamationTriangleIcon className="w-4 h-4 dark:text-amber-500" aria-hidden="true" />
             <span className="text-xs font-medium whitespace-nowrap">Private Property Only</span>
@@ -59,7 +59,7 @@ export const MobileCard = ({ skip }: MobileCardProps) => {
         {!skip.allows_heavy_waste && (
           <div
             role="status"
-            className="flex items-center gap-2 px-3 py-1.5 bg-red-500/95 dark:bg-neutral-100 dark:border dark:border-red-500 text-white rounded-sm shadow-lg !dark:backdrop-blur-sm"
+            className="flex items-center gap-2 px-3 py-1.5 bg-red-500/95 dark:bg-red-800/95 text-white rounded-sm shadow-lg"
           >
             <ExclamationTriangleIcon className="w-4 h-4 dark:text-red-500" aria-hidden="true" />
             <span className="text-xs font-medium whitespace-nowrap">

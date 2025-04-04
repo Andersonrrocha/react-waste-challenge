@@ -34,7 +34,7 @@ const steps = [
   },
   {
     id: 5,
-    name: 'Choose Date',
+    name: 'Schedule',
     icon: CalendarDaysIcon,
     isActive: false,
   },
@@ -48,42 +48,48 @@ const steps = [
 
 export const Timeline = () => {
   const lastActiveIndex = steps.reduce((acc, step, index) => (step.isActive ? index : acc), 0);
-
   const progressPercentage = (lastActiveIndex / (steps.length - 1)) * 100;
 
   return (
-    <div className="w-full bg-[#efe1b8] dark:bg-gray-800 py-8">
+    <div className="w-full bg-[#efe1b8] dark:bg-gray-800 pt-24 pb-8">
       <div className="max-w-[1440px] mx-auto px-6">
         <div className="relative">
           <div className="absolute top-5 left-0 w-full h-0.5 bg-neutral-200 dark:bg-neutral-700" />
-
           <div
             className="absolute top-5 left-0 h-0.5 bg-primary transition-all duration-300"
             style={{ width: `${progressPercentage}%` }}
           />
 
           <div className="relative flex justify-between">
-            {steps.map((step) => (
-              <div key={step.id} className="flex flex-col items-center">
-                <div
-                  className={`
-                  w-10 h-10 rounded-full flex items-center justify-center 
-                  ${
-                    step.isActive
-                      ? 'bg-primary text-white'
-                      : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400'
-                  }
-                  relative z-10 transition-colors duration-200
+            {steps.map((step, index) => (
+              <div
+                key={step.id}
+                className={`
+                  flex flex-col items-center
+                  ${index < 2 || index > 3 ? 'hidden md:flex' : ''}
                 `}
-                >
-                  <step.icon className="w-5 h-5" />
+              >
+                <div className="relative z-10">
+                  <div
+                    className={`
+                      w-10 h-10 rounded-full flex items-center justify-center
+                      ${
+                        step.isActive
+                          ? 'bg-primary text-white'
+                          : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400'
+                      }
+                      transition-colors duration-200
+                    `}
+                  >
+                    <step.icon className="w-5 h-5" />
+                  </div>
                 </div>
                 <span
                   className={`
-                  mt-2 text-sm font-medium
-                  ${step.isActive ? 'text-primary' : 'text-neutral-600 dark:text-neutral-600'}
-                  transition-colors duration-200
-                `}
+                    mt-2 text-sm font-medium
+                    ${step.isActive ? 'text-primary' : 'text-neutral-600 dark:text-neutral-600'}
+                    transition-colors duration-200
+                  `}
                 >
                   {step.name}
                 </span>

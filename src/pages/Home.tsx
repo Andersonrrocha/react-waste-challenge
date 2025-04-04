@@ -31,21 +31,21 @@ export const Home = () => {
       <div className="min-h-screen bg-[#efe1b8] dark:bg-gray-800">
         <ThemeToggle />
         <Timeline />
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 px-3">
           <h1 className="text-5xl font-bold text-primary-darker">Choose Your Skip Size</h1>
           <p className="mt-2 text-neutral-600 text-xl dark:text-neutral-500">
             Select the skip size that best suits your needs
           </p>
         </div>
-        <div className="max-w-[1440px] mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-[1920px] mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
             {skips && skips.length > 0 ? (
               skips.map((skip) => (
                 <>
-                  <div className="hidden sm:block">
+                  <div className="hidden lg:block">
                     <Card key={skip.id} skip={skip} />
                   </div>
-                  <div className="sm:hidden">
+                  <div className="lg:hidden">
                     <MobileCard key={skip.id} skip={skip} />
                   </div>
                 </>

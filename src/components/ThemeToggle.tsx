@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 
 export const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -19,38 +20,23 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={() => setIsDark(!isDark)}
-      className="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800"
+      className="fixed top-4 right-4 p-3 rounded-full bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm shadow-lg hover:scale-110 transition-all duration-200 group z-50"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-          />
-        </svg>
+        <div className="flex items-center hover:gap-2">
+          <SunIcon className="h-7 w-7 text-amber-400" />
+          <span className="text-sm text-neutral-700 dark:text-neutral-800 opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-[200px] overflow-hidden transition-all duration-200 whitespace-nowrap">
+            Light Mode
+          </span>
+        </div>
       ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
-        </svg>
+        <div className="flex items-center hover:gap-2">
+          <MoonIcon className="h-7 w-7 text-indigo-600" />
+          <span className="text-sm text-neutral-700 dark:text-neutral-100 opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-[200px] overflow-hidden transition-all duration-200 whitespace-nowrap">
+            Dark Mode
+          </span>
+        </div>
       )}
     </button>
   );
