@@ -1,5 +1,7 @@
 # Skip Size Selection Challenge
 
+### 🌐 [Live Demo](https://andersonrrocha.github.io/react-waste-challenge/)
+
 ## Overview
 
 This project is a modern and user-friendly interface for skip size selection, with focus on user experience and code quality. Built with React, TypeScript, and modern web development practices.
