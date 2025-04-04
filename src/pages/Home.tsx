@@ -6,6 +6,7 @@ import { SelectedSkipProvider } from '../contexts/SelectedSkipContext';
 import { SelectedSkipDrawer } from '../components/SelectedSkipDrawer';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import { MobileCard } from '../components/MobileCard';
+import { Spinner } from '../components/Spinner';
 
 export const Home = () => {
   const { data: skips, isLoading, error } = useSkips();
@@ -13,7 +14,7 @@ export const Home = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#efe1b8] dark:bg-gray-800 text-neutral-900 dark:text-neutral-50 flex items-center justify-center">
-        Loading...
+        <Spinner />
       </div>
     );
   }
