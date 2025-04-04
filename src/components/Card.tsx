@@ -39,7 +39,7 @@ export const Card = ({ skip }: CardProps) => {
       aria-selected={isSelected}
       className={`
         skip-card
-        relative w-[23.75rem] h-[17.5rem]
+        relative w-[19rem] 2xl:w-[23.75rem] h-[17.5rem]
         ${isDisabled ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'}
         ${isSelected ? 'bg-primary' : ''}
         transition-all duration-200 hover:scale-[1.02]
@@ -78,7 +78,7 @@ export const Card = ({ skip }: CardProps) => {
       `}
       >
         <span
-          className={`absolute bottom-2 left-2 text-[3rem] font-extrabold opacity-30 leading-none
+          className={`absolute bottom-2 left-2 text-[2.5rem] 2xl:text-[3rem] font-extrabold opacity-30 leading-none
           ${isDisabled ? 'text-neutral-700 dark:text-gray-700' : 'text-hover dark:opacity-50'}
         `}
         >
