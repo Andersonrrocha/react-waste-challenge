@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+# Skip Size Selection Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a modern and user-friendly interface for skip size selection, focusing on improving user experience while maintaining the core functionality of the original proposal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Approach & Methodology
 
-## Expanding the ESLint configuration
+### Initial Analysis
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Conducted a thorough review of available functionalities
+- Identified potential improvement points
+- Focused on enhancing user experience without deviating from the core requirements
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Design Improvements
+
+- Reimagined the interface with a modern and engaging design
+- Implemented a light color scheme to better highlight important elements
+- Added dark mode support for complete user customization
+- Enhanced visual hierarchy for better information scanning
+
+### User Experience Enhancements
+
+1. **Card Design**
+
+   - Highlighted key features for immediate user comprehension
+   - Clear visual indicators for disabled states
+   - Robust validation for handling unexpected API responses
+   - Visual feedback for selected items
+
+2. **Detailed View**
+
+   - Implemented a drawer component for expanded information
+   - Added toggle functionality for selected cards
+   - Maintained visual consistency between list and detailed views
+
+3. **Responsive Design**
+   - Created separate components for mobile and desktop views
+   - Optimized layout for different screen sizes
+   - Implemented responsive grid system
+   - Carefully considered content presentation across breakpoints
+
+## 💻 Technical Implementation
+
+### Technology Stack
+
+- React (Latest Version)
+- Vite (Build Tool)
+- Tailwind CSS (Styling)
+- Heroicons (Icon Library)
+
+### Project Structure
+
+Implemented a scalable architecture with clear separation of concerns:
+
+```
+src/
+├── components/     # Reusable UI components
+├── contexts/       # React contexts
+├── hooks/         # Custom hooks
+└── pages/         # Page components
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Best Practices
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Component Separation: Distinct components for mobile and desktop views
+- Responsive Design: Optimized layouts for various screen sizes
+- Performance: Minimal external dependencies
+- Maintainability: Clear code structure and organization
+- Accessibility: Semantic HTML and proper ARIA attributes
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🌟 Key Features
+
+- Modern, intuitive interface
+- Responsive design across all devices
+- Dark/Light mode support
+- Interactive card selection
+- Detailed information drawer
+- Clear visual feedback
+- Error state handling
+
+## 🔍 Design Decisions
+
+- **Separate Card Components**: Created distinct components for mobile and desktop to maintain clean, specific styling without complex conditions
+- **Grid Layout**: Optimized card display for different screen sizes to maximize available space
+- **Visual Feedback**: Implemented clear indicators for card states (selected, disabled)
+- **Theme Support**: Developed a cohesive design system that works seamlessly in both light and dark modes
+
+## 🛠 Technical Considerations
+
+- Minimized external dependencies for better performance
+- Used modern React patterns and hooks
+- Implemented responsive design using Tailwind CSS utilities
+- Maintained scalable project structure despite the project's current size
+
+## 🎨 UI/UX Considerations
+
+- Enhanced visual hierarchy
+- Clear user feedback
+- Intuitive interactions
+- Consistent design language
+- Accessible interface
