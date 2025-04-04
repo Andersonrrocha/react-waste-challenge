@@ -6,11 +6,11 @@ import {
 } from '@heroicons/react/24/outline';
 import { useSelectedSkip } from '../contexts/SelectedSkipContext';
 
-interface CardProps {
+interface MobileCardProps {
   skip: Skip;
 }
 
-export const Card = ({ skip }: CardProps) => {
+export const MobileCard = ({ skip }: MobileCardProps) => {
   const { selectedSkip, selectSkip, clearSelection } = useSelectedSkip();
   const isDisabled = !skip.allowed_on_road || !skip.allows_heavy_waste;
   const isSelected = selectedSkip?.id === skip.id;
@@ -38,7 +38,7 @@ export const Card = ({ skip }: CardProps) => {
       aria-selected={isSelected}
       className={`
         skip-card
-        relative w-[23.75rem] h-[17.5rem]
+        relative w-full min-h-[26.25rem]
         ${isDisabled ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'}
         ${isSelected ? 'bg-primary' : ''}
         transition-all duration-200 hover:scale-[1.02]
@@ -71,13 +71,13 @@ export const Card = ({ skip }: CardProps) => {
 
       <div
         className={`
-        absolute w-[11.25rem] h-[17.5rem] 
-        rounded-[1.5rem] overflow-hidden
+        relative w-full h-[10rem]
+        rounded-t-[1.5rem] overflow-hidden
         ${isDisabled ? 'bg-neutral-400 dark:bg-neutral-500' : 'bg-primary'}
       `}
       >
         <span
-          className={`absolute bottom-2 left-2 text-[3rem] font-extrabold opacity-30 leading-none
+          className={`absolute top-3 right-3 text-[3rem] font-extrabold opacity-30 leading-none
           ${isDisabled ? 'text-neutral-700 dark:text-gray-700' : 'text-hover dark:opacity-50'}
         `}
         >
@@ -85,19 +85,22 @@ export const Card = ({ skip }: CardProps) => {
         </span>
       </div>
 
-      <div className="absolute text-center overflow-visible left-[30%] w-[320px] h-[240px] top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-900 rounded-[23px] shadow-lg sm:block hidden">
-        <div className="absolute top-1/2 left-0 transform -translate-x-1/3 -translate-y-1/2">
-          <img
-            src="./src/assets/skip-waste-placeholder.webp"
-            alt={`${skip.size} Yard Skip`}
-            className={`
-              w-48 object-contain transform transition-transform duration-300
-              ${isDisabled ? 'grayscale' : 'hover:scale-105'}
-            `}
-          />
-        </div>
+      <div className="absolute left-1/2 w-[16rem] transform -translate-x-1/2 top-2/11 z-20">
+        <img
+          src="./src/assets/skip-waste-placeholder.webp"
+          alt={`${skip.size} Yard Skip`}
+          className={`
+            w-full object-contain transform transition-transform duration-300
+            ${isDisabled ? 'grayscale' : 'hover:scale-105'}
+          `}
+        />
+      </div>
 
-        <div className="w-[160px] ml-[140px] mt-[30px]">
+      <div
+        className="relative bg-white dark:bg-gray-900 rounded-b-[1.5rem] 
+        shadow-lg w-full p-6"
+      >
+        <div className="w-full pt-[3.5rem]">
           <h2 className="font-extrabold text-xl uppercase leading-tight mb-2 text-neutral-700 dark:text-neutral-700">
             {skip.size} yard skip
           </h2>

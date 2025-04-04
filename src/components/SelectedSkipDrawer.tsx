@@ -55,7 +55,7 @@ export const SelectedSkipDrawer = () => {
           <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-80px)] hide-scrollbar">
             <div className="text-center">
               <img
-                src="./src/assets/skip-waste-placeholder-2.webp"
+                src="./src/assets/skip-waste-placeholder.webp"
                 alt={`${selectedSkip.size} Yard Skip`}
                 className="w-64 mx-auto mb-4"
               />
@@ -65,7 +65,7 @@ export const SelectedSkipDrawer = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="bg-neutral-200 dark:bg-gray-800 p-4 rounded-lg">
+              <div className="bg-neutral-200 dark:bg-gray-800 p-4 rounded-sm">
                 <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-500 mb-1 uppercase">
                   Hire Period
                 </h4>
@@ -73,7 +73,7 @@ export const SelectedSkipDrawer = () => {
                   {selectedSkip.hire_period_days} days
                 </p>
               </div>
-              <div className="bg-neutral-200 dark:bg-gray-800 p-4 rounded-lg">
+              <div className="bg-neutral-200 dark:bg-gray-800 p-4 rounded-sm">
                 <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-500 mb-1 uppercase">
                   Price
                 </h4>
@@ -85,13 +85,13 @@ export const SelectedSkipDrawer = () => {
 
               <div className="space-y-2">
                 {!selectedSkip.allowed_on_road && (
-                  <div className="flex items-center gap-2 text-amber-500 bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg">
+                  <div className="flex items-center gap-2 text-amber-500 bg-amber-50 dark:bg-amber-900/20 p-3 rounded-sm">
                     <CheckCircleIcon className="w-5 h-5" />
                     <span className="text-sm font-medium">Private Property Only</span>
                   </div>
                 )}
                 {!selectedSkip.allows_heavy_waste && (
-                  <div className="flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                  <div className="flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/20 p-3 rounded-sm">
                     <CheckCircleIcon className="w-5 h-5" />
                     <span className="text-sm font-medium">Not Suitable for Heavy Waste</span>
                   </div>
@@ -99,7 +99,7 @@ export const SelectedSkipDrawer = () => {
               </div>
 
               {selectedSkip.transport_cost && (
-                <div className="bg-neutral-50 dark:bg-gray-800 p-4 rounded-lg">
+                <div className="bg-neutral-50 dark:bg-gray-800 p-4 rounded-sm">
                   <h4 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">
                     Transport Cost
                   </h4>
@@ -110,7 +110,7 @@ export const SelectedSkipDrawer = () => {
               )}
 
               {selectedSkip.per_tonne_cost && (
-                <div className="bg-neutral-50 dark:bg-gray-800 p-4 rounded-lg">
+                <div className="bg-neutral-50 dark:bg-gray-800 p-4 rounded-sm">
                   <h4 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-1">
                     Cost per Tonne
                   </h4>
